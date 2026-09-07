@@ -1,3 +1,14 @@
+import sys
+import subprocess
+
+# Eğer openpyxl yoksa, Python arka planda kendi kendine kursun:
+try:
+    import openpyxl
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openpyxl"])
+
+import streamlit as st
+import pandas as pd
 import streamlit as st
 import pandas as pd
 from catboost import CatBoostRegressor, Pool
